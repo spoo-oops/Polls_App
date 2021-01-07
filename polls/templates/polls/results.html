@@ -1,0 +1,27 @@
+<!-- STYLES -->
+{% load static %}
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="content_container">
+  <h1>{{ question.question_text }}</h1>
+  <div class ="result">
+  <ul>
+    {% for choice in question.choice_set.all %}
+    <li>
+      {{ choice.choice_text }} -<b> {{ choice.votes }}
+      vote{{choice.votes|pluralize }}</b>
+    </li>
+    {% endfor %}
+  </ul>
+  </div>
+  <a class="vote_again" href="{% url 'polls:detail' question.id %}"
+    >Vote again</a>
+</div>

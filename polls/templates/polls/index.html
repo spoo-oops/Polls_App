@@ -1,0 +1,47 @@
+<!-- STYLES -->
+{% load static %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Links to Questions -->
+<!-- Name argument defined in path() functions in polls.urls model. -->
+
+{% if latest_question_list %}
+<div class="content_container">
+  <div class="polls">
+  <h1> <p style="color: white">THE POLLS APP </h1></p>
+  </div>
+  <b><h3> <p style="margin-top: -50px"> AVAILABLE POLLS:<p></b></h3>
+  <BR>
+  <ul>
+    {% for question in latest_question_list %}
+    <li>
+      <a href="{% url 'polls:detail' question.id %}"
+        >{{ question.question_text }}</a
+      >
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No polls are available.</p>
+  {% endif %}
+  <div class="pika"><img src="https://www.pngmart.com/files/2/Pikachu-Transparent-Background.png" alt="pika" style="width:200px;height:200px;"></div>
+</div>
+
+<!-- V1 Hardcoded, tightly coupled approach -->
+<!-- Makes it challenging to change URLs on projects w/ lots of templates -->
+<!-- {% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %} -->

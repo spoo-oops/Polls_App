@@ -1,0 +1,158 @@
+.content_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    
+  }
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    margin-top: -30px;
+    margin-bottom: 50px;
+    background-color: #3ad695;
+    padding: 100px 800px 50px 800px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("images/final.jpg");
+    min-height: 70%; 
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-top: -40px;
+  }
+  
+  li {
+    margin: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  li a {
+    color: darkcyan;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 22px;
+  }
+  
+  li a:hover {
+    color: rgb(93, 95, 94);
+  }
+  
+  body {
+    height: 100vh;
+    width: 100vw;
+    background: rgb(230, 233, 233);
+    /* background: white url("images/grey.jpg") no-repeat; */
+  }
+  
+  a.vote_again {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgb(243, 81, 81);
+  }
+  
+  a.vote_again:hover {
+    color: rgb(132, 134, 133);
+  }
+  
+  .button {
+    margin-top: 20px;
+    transition-duration: 0.2s;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: darkcyan;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    color: white;
+  }
+  
+  
+  .button:hover {
+    background-color: rgb(111, 112, 111);
+  }
+  
+  .choice {
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+    color: darkcyan;
+    margin:-10px auto;
+  }
+  .choice:hover {
+    color: rgb(105, 109, 107);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+  }
+  .result {
+    color: darkcyan;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 22px; 
+    margin-bottom: 50px;
+  }
+  .error {
+    color: rgb(255, 73, 73);
+  }
+
+  .polls{
+    text-shadow: 2px 2px #000000;
+  }
+  .pika{
+    mix-blend-mode: multiply;
+    background-size: 20px 20px;
+  }
+
+  [type="radio"] {
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; margin: 1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: relative; 
+    width: 1px;
+  }
+ 
+  
+  /* the basic, unchecked style */
+  [type="radio"] + span:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: 0.1em;
+    border-radius: 1em;
+    border: 0.125em solid #fff;
+    box-shadow: 0 0 0 0.15em #000;
+    margin-right: 0.75em;
+    transition: 0.5s ease all;
+  }
+  
+  /* the checked style using the :checked pseudo class */
+  [type="radio"]:checked + span:before {
+    background: rgb(235, 49, 80);
+    box-shadow: 0 0 0 0.25em #000;
+  }
+
+  
+  
+  
+  
