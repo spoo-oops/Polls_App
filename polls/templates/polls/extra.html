@@ -16,28 +16,18 @@
 
 
 <div class="content_container">
-  <h1>{{ question.question_text }}</h1>
-  <a class = "about" href = "{% url 'polls:extra' question.id %}">About the Application</a>
-<label class="error">
-  {% if error_message %}
-  <p><strong><h4>{{ error_message }}</strong></h4>
-  {% endif %}</label> 
-  <br>
-  <br>
-  
-  <form class="form" action="{% url 'polls:vote' question.id %}" method="post">
-    {% csrf_token %} {% for choice in question.choice_set.all %}
-    <input 
-      type="radio" 
-      name="choice"
-      id="choice{{ forloop.counter }}"
-      value="{{ choice.id }}"
-    /><span>
-    <label class="choice" for="choice{{ forloop.counter }}" >{{ choice.choice_text }}
-    </span>
-    </label><br>
-    {% endfor %}
-    <input class="button" type="submit" value="Vote" />
-  </form>
-
+    <h1>ABOUT THIS APP</h1>
+    <div class = "result_text"><strong>{{ result.result_text }}</strong></div>
+<div class = "description">   
+    <br>
+    <br>
+     ITS A GENNERAL POLLS APP.<br>
+    <strong>It consists of two parts:</strong>
+    <br>
+<li >A public site that lets people view polls and vote in them.</li>
+<li>An admin site that lets you add, change, and delete polls.</li>
+</div>
+<br>
+<a href="https://docs.djangoproject.com/en/3.1/intro/tutorial01/">Check out the official django tutorial</a>
+<strong><a href="http://127.0.0.1:8000">Go back to main polls page</a></strong>
 </div>
