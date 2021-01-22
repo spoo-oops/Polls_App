@@ -17,7 +17,7 @@
 
 <div class="content_container">
   <h1>{{ question.question_text }}</h1>
-  <a class = "about" href = "{% url 'polls:extra' question.id %}">About the Application</a>
+  
 <label class="error">
   {% if error_message %}
   <p><strong><h4>{{ error_message }}</strong></h4>
@@ -25,7 +25,7 @@
   <br>
   <br>
   
-  <form class="form" action="{% url 'polls:vote' question.id %}" method="post">
+  <form class="form" action="{% url 'polls:vote' category_id question.id %}" method="post">
     {% csrf_token %} {% for choice in question.choice_set.all %}
     <input 
       type="radio" 

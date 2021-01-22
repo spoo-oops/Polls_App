@@ -12,7 +12,7 @@
 <!-- Links to Questions -->
 <!-- Name argument defined in path() functions in polls.urls model. -->
 
-{% if cat_question %}
+{% if category_list %}
 <div class="content_container">
   <div class="polls">
   <h1> <p style="color: white">THE POLLS APP </h1></p>
@@ -20,10 +20,9 @@
   <b><h3> <p style="margin-top: -50px"> AVAILABLE POLLS:<p></b></h3>
   <BR>
   <ul>
-    {% for question in cat_question %}
+    {% for category in category_list %}
     <li>
-      <a href="{% url 'polls:detail' category_id question.id %}"
-        >{{ question.question_text }}</a
+      <a href="{% url 'polls:index' category.id %}">{{ category.category_name }}</a
       >
     </li>
     {% endfor %}

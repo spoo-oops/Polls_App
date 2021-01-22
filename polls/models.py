@@ -2,8 +2,18 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+class Category(models.Model):
+    category_name = models.CharField(max_length = 50, default='SOME STRING')
+    category_desc = models.CharField(max_length = 500, default='SOME STRING')
+    category_count = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.category_name
+
 
 class Question(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -30,11 +40,11 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
-class Result(models.Model):
+"""class Result(models.Model):
     result_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     # Important to add this method when dealing w/ interactive promopt
     def __str__(self):
         return self.result_text
-    # Add custom date/time method
+    # Add custom date/time method"""

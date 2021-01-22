@@ -4,16 +4,16 @@ from django.contrib import admin
 # Tells admin that Question obects have admin interface
 from .models import Question
 from .models import Choice
-from .models import Result
+from .models import Category
 # Register your models here.
-
-admin.site.register(Choice)
-admin.site.register(Result)
 
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3
+
+class QuestionInline(admin.TabularInline):
+    model = Question
 
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -22,8 +22,17 @@ class QuestionAdmin(admin.ModelAdmin):
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     inlines = [ChoiceInline]
-    list_display = ('question_text', 'pub_date', 'was_published_recently')
+    #for the main question page
+    list_display = ('question_text', 'pub_date','category', 'was_published_recently')
     list_filter = ['pub_date']
     search_fields = ['question_text']
 
+class CategoryAdmin(admin.ModelAdmin):
+    model = Category
+    inlines = [
+        QuestionInline,
+    ]
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Category, CategoryAdmin)
+
+admin.site.register(Choice)
